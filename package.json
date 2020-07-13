@@ -1,0 +1,28 @@
+{
+  "name": "tugboat-status",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": {
+    "name": "Lullabot",
+    "email": "tugboat@lullabot.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Lullabot/tugboat-status.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lullabot/tugboat-status/issues"
+  },
+  "licence": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "http-proxy": "^1.18.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "tabWidth": 4
+  }
+}
