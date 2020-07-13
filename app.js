@@ -27,13 +27,15 @@ async function rss() {
     });
 
     outages.outage_list.forEach((outage) => {
-        feed.item({
-            title: `Incident at ${new Date(outage.start_time)}`,
-            description: outage.description,
-            url: 'https://status.tugboat.qa',
-            guid: outage.hash,
-            date: new Date(outage.start_time),
-        });
+        if (!outage.exclude_from_availability) {
+            feed.item({
+                title: `Incident at ${new Date(outage.start_time)}`,
+                description: outage.description,
+                url: 'https://status.tugboat.qa',
+                guid: outage.hash,
+                date: new Date(outage.start_time),
+            });
+        }
     });
 
     return feed.xml({ indent: true });
