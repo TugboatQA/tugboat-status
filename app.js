@@ -60,10 +60,11 @@ async function http(req, res) {
     return proxy.web(req, res, { target, changeOrigin: true });
 }
 
-server.listen(3000, (err) => {
+const port = process.env.PORT || 3000
+server.listen(port, (err) => {
     if (err) {
         console.error(err);
     } else {
-        console.log('Service listening on port 3000');
+        console.log(`Service listening on port ${port}`);
     }
 });
