@@ -1,0 +1,16 @@
+# We should use npm install to grab the required dependencies.
+node_modules
+npm-debug.log
+.npm
+yarn-error.log
+
+# Various temp files.
+*.DS_Store
+*.swp
+*.swo
+
+# Jetbrains IDE stuff
+.idea
+
+# Visual Code Studio
+.vscode
