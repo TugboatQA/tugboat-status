@@ -15,7 +15,10 @@
   },
   "licence": "SEE LICENSE IN LICENSE",
   "dependencies": {
-    "http-proxy": "^1.18.1"
+    "http-proxy": "^1.18.1",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8",
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "prettier": "^2.0.5"
