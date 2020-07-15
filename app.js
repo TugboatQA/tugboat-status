@@ -42,6 +42,10 @@ async function rss() {
 }
 
 async function http(req, res) {
+    if (req.url === '/_status') {
+        return res.end('Status OK');
+    }
+
     if (req.url === '/rss') {
         const body = await rss();
 
@@ -60,7 +64,7 @@ async function http(req, res) {
     return proxy.web(req, res, { target, changeOrigin: true });
 }
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 server.listen(port, (err) => {
     if (err) {
         console.error(err);
