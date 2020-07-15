@@ -1,5 +1,7 @@
+const fs = require('fs');
 const http_server = require('http');
 const http_proxy = require('http-proxy');
+const path = require('path');
 const request = require('request-promise-native');
 
 const RSS = require('rss');
@@ -41,6 +43,22 @@ async function rss() {
     return feed.xml({ indent: true });
 }
 
+async function svg(req, res) {
+    const file = path.join(__dirname, req.url);
+    const stream = fs.createReadStream(file);
+
+    stream.on('open', () => {
+        res.setHeader('Content-Type', 'image/svg+xml');
+        stream.pipe(res);
+    });
+
+    stream.on('error', () => {
+        res.setHeader('Content-Type', 'text/plain');
+        res.statusCode = 404;
+        res.end('Not Found');
+    });
+}
+
 async function http(req, res) {
     if (req.url === '/_status') {
         return res.end('Status OK');
@@ -53,6 +71,10 @@ async function http(req, res) {
         res.setHeader('Content-Type', 'application/rss+xml');
 
         return res.end(body);
+    }
+
+    if (req.url.match(/^\/svg\/.*/)) {
+        return svg(req, res);
     }
 
     const target = 'https://status.panopta.com';
