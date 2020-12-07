@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/Lullabot/tugboat-status/issues"
   },
-  "licence": "SEE LICENSE IN LICENSE",
+  "licence": "MIT",
   "scripts": {
     "start": "node app.js"
   },
