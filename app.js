@@ -19,10 +19,10 @@ async function rss() {
 
     const feed = new RSS({
         title: 'Tugboat Status - Incident History',
-        feed_url: 'https://status.tugboat.qa/rss',
-        site_url: 'https://www.tugboat.qa',
-        image_url: 'https://tugboat.qa/images/logo/logo_horizontal_light.svg',
-        docs: 'https://docs.tugboat.qa',
+        feed_url: 'https://www.tugboatqa-status.com/rss',
+        site_url: 'https://www.tugboatqa.com',
+        image_url: 'https://tugboatqa.github.io/assets.tugboat.qa/images/logo/logo_horizontal_light.svg',
+        docs: 'https://docs.tugboatqa.com',
         copyright: 'Tugboat',
         language: 'en',
         pubDate: new Date(),
@@ -33,7 +33,7 @@ async function rss() {
             feed.item({
                 title: `Incident at ${new Date(outage.start_time)}`,
                 description: outage.description,
-                url: 'https://status.tugboat.qa',
+                url: 'https://www.tugboatqa-status.com',
                 guid: outage.hash,
                 date: new Date(outage.start_time),
             });
